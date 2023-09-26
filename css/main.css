@@ -48,6 +48,7 @@ body {
   body {
     background-image: url("../img/main-background-mobile.png");
     background-size: 220%;
+    background-attachment: scroll;
   }
 }
 
@@ -181,6 +182,14 @@ footer.section-angle {
   border-color: #11171a;
 }
 
+@media only screen and (max-width: 768px) {
+  #platforms {
+    background-image: url("../img/main-background-mobile.png");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
 
 #platforms .card {
   width: 100%;
@@ -516,4 +525,11 @@ footer.section-angle {
 .fa {
   font-size: 1.1em;
   color: #FFF;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    background-color: #11171a;
+    ;
+  }
 }
