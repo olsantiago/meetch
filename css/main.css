@@ -1,0 +1,518 @@
+:root {
+  --inset: 1vmin;
+  --color0: #0ac;
+  --color1: #222;
+  --duration: 5s;
+  --bgcolor0: #0aca;
+  --bgcolor1: #222a;
+  --background-color: #18181B;
+  --text-color: #A1A1AA;
+  --card-background-color: rgba(255, 255, 255, .015);
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --card-box-shadow-1: rgba(0, 0, 0, 0.05);
+  --card-box-shadow-1-y: 3px;
+  --card-box-shadow-1-blur: 6px;
+  --card-box-shadow-2: rgba(0, 0, 0, 0.1);
+  --card-box-shadow-2-y: 8px;
+  --card-box-shadow-2-blur: 15px;
+  --card-label-color: #FFFFFF;
+  --card-icon-color: #D4D4D8;
+  --card-icon-background-color: rgba(255, 255, 255, 0.08);
+  --card-icon-border-color: rgba(255, 255, 255, 0.12);
+  --card-shine-opacity: .1;
+  --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(16, 185, 129, 0) 0deg, #10B981 25deg, rgba(52, 211, 153, 0.18) 295deg, rgba(16, 185, 129, 0) 360deg);
+  --card-line-color: #2A2B2C;
+  --card-tile-color: rgba(16, 185, 129, 0.05);
+  --card-hover-border-color: rgba(255, 255, 255, 0.2);
+  --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+  --card-hover-box-shadow-1-y: 5px;
+  --card-hover-box-shadow-1-blur: 10px;
+  --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+  --card-hover-box-shadow-2-y: 15px;
+  --card-hover-box-shadow-2-blur: 25px;
+  --card-hover-icon-color: #34D399;
+  --card-hover-icon-background-color: rgba(52, 211, 153, 0.1);
+  --card-hover-icon-border-color: rgba(52, 211, 153, 0.2);
+  --blur-opacity: .01;
+}
+
+body {
+  background-image: url("../img/main-background.png");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-image: url("../img/main-background-mobile.png");
+  }
+}
+
+.bg-hero {
+  background-color: transparent;
+  min-height: 20vh;
+}
+
+.bg-hero:before {
+  display: none;
+}
+
+.bg-hero.section-angle {
+  border-color: #11171a;
+}
+
+.bg-hero .row {
+  min-height: 70vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .bg-hero .row {
+    min-height: 50vh;
+  }
+}
+
+footer.section-angle {
+  border-color: #11171a;
+  background-color: transparent;
+}
+
+.section-angle::before {
+  background-color: transparent !important;
+}
+
+.avatar {
+  border: 5px solid transparent;
+  box-sizing: border-box;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.avatar__image {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar::before,
+.avatar::after {
+  border: 5px solid transparent;
+  border-radius: 50%;
+  border-top: 5px solid #00BCD4;
+  content: "";
+  display: block;
+  height: calc(100% + 10px);
+  left: 50%;
+  width: calc(100% + 10px);
+  position: absolute;
+}
+
+.avatar::before {
+  top: -10px;
+  transform: translateX(-50%);
+}
+
+.avatar::after {
+  bottom: -10px;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+
+/* CARDS ANIMATED */
+#music .card {
+  flex: 1;
+}
+
+#music .card.animated {
+  position: relative;
+  transition: all .2s ease-in-out;
+  overflow: hidden;
+}
+
+#music .card-title {
+  height: 75px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+#music .card-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  /* start showing ellipsis when 3rd line is reached */
+}
+
+#music .arrow {
+  margin-top: -15px;
+}
+
+#music .card.animated .card-body {
+  background-color: #263238 !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: inherit;
+  transition: all .4s ease-in-out;
+  transform: translateY(270px);
+  opacity: 0.5;
+  height: 300px;
+}
+
+#music .card.animated:hover .card-body {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#music .card.animated:hover .arrow {
+  transform: rotate(180deg);
+}
+
+#platforms {
+  background: transparent;
+  border-color: #11171a;
+}
+
+
+#platforms .card {
+  width: 100%;
+  height: 200px;
+  background-color: var(--background-color);
+  box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color);
+  padding: 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#platforms .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background-color: var(--card-background-color);
+}
+
+#platforms .card h4 {
+  z-index: 2;
+  position: relative;
+  margin: 12px 0 4px 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--card-label-color);
+}
+
+#platforms .card .icon {
+  font-size: 3em;
+  color: #FFF !important;
+}
+
+#platforms .card p {
+  z-index: 2;
+  position: relative;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+#platforms .card .shine {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#platforms .card .shine:before {
+  content: "";
+  width: 150%;
+  padding-bottom: 150%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 55%;
+  filter: blur(35px);
+  opacity: var(--card-shine-opacity);
+  transform: translateX(-50%);
+  background-image: var(--card-shine-gradient);
+}
+
+#platforms .card .background {
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+  mask-image: radial-gradient(circle at 60% 5%, black 0%, black 15%, transparent 60%);
+}
+
+#platforms .card .background .tiles {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+#platforms .card .background .tiles .tile {
+  position: absolute;
+  background-color: var(--card-tile-color);
+  -webkit-animation-duration: 8s;
+  animation-duration: 8s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+#platforms .card .background .tiles .tile.tile-4,
+#platforms .card .background .tiles .tile.tile-6,
+#platforms .card .background .tiles .tile.tile-10 {
+  -webkit-animation-delay: -2s;
+  animation-delay: -2s;
+}
+
+#platforms .card .background .tiles .tile.tile-3,
+#platforms .card .background .tiles .tile.tile-5,
+#platforms .card .background .tiles .tile.tile-8 {
+  -webkit-animation-delay: -4s;
+  animation-delay: -4s;
+}
+
+#platforms .card .background .tiles .tile.tile-2,
+#platforms .card .background .tiles .tile.tile-9 {
+  -webkit-animation-delay: -6s;
+  animation-delay: -6s;
+}
+
+#platforms .card .background .tiles .tile.tile-1 {
+  top: 0;
+  left: 0;
+  height: 10%;
+  width: 22.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-2 {
+  top: 0;
+  left: 22.5%;
+  height: 10%;
+  width: 27.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-3 {
+  top: 0;
+  left: 50%;
+  height: 10%;
+  width: 27.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-4 {
+  top: 0;
+  left: 77.5%;
+  height: 10%;
+  width: 22.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-5 {
+  top: 10%;
+  left: 0;
+  height: 22.5%;
+  width: 22.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-6 {
+  top: 10%;
+  left: 22.5%;
+  height: 22.5%;
+  width: 27.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-7 {
+  top: 10%;
+  left: 50%;
+  height: 22.5%;
+  width: 27.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-8 {
+  top: 10%;
+  left: 77.5%;
+  height: 22.5%;
+  width: 22.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-9 {
+  top: 32.5%;
+  left: 50%;
+  height: 22.5%;
+  width: 27.5%;
+}
+
+#platforms .card .background .tiles .tile.tile-10 {
+  top: 32.5%;
+  left: 77.5%;
+  height: 22.5%;
+  width: 22.5%;
+}
+
+@-webkit-keyframes tile {
+
+  0%,
+  12.5%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  82.5% {
+    opacity: 0;
+  }
+}
+
+@keyframes tile {
+
+  0%,
+  12.5%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  82.5% {
+    opacity: 0;
+  }
+}
+
+#platforms .card .background .line {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+#platforms .card .background .line:before,
+#platforms .card .background .line:after {
+  content: "";
+  position: absolute;
+  background-color: var(--card-line-color);
+  transition: transform 0.35s;
+}
+
+#platforms .card .background .line:before {
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+#platforms .card .background .line:after {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: 50% 0;
+  transform: scaleY(0);
+}
+
+#platforms .card .background .line.line-1:before {
+  top: 10%;
+}
+
+#platforms .card .background .line.line-1:after {
+  left: 22.5%;
+}
+
+#platforms .card .background .line.line-1:before,
+#platforms .card .background .line.line-1:after {
+  transition-delay: 0.3s;
+}
+
+#platforms .card .background .line.line-2:before {
+  top: 32.5%;
+}
+
+#platforms .card .background .line.line-2:after {
+  left: 50%;
+}
+
+#platforms .card .background .line.line-2:before,
+#platforms .card .background .line.line-2:after {
+  transition-delay: 0.15s;
+}
+
+#platforms .card .background .line.line-3:before {
+  top: 55%;
+}
+
+#platforms .card .background .line.line-3:after {
+  right: 22.5%;
+}
+
+#platforms .card:hover {
+  box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+}
+
+#platforms .card:hover .shine {
+  opacity: 1;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+}
+
+#platforms .card:hover .background .tiles {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+
+#platforms .card:hover .background .tiles .tile {
+  -webkit-animation-name: tile;
+  animation-name: tile;
+}
+
+#platforms .card:hover .background .line {
+  opacity: 1;
+  transition-duration: 0.15s;
+}
+
+#platforms .card:hover .background .line:before {
+  transform: scaleX(1);
+}
+
+#platforms .card:hover .background .line:after {
+  transform: scaleY(1);
+}
+
+#platforms .card:hover .background .line.line-1:before,
+#platforms .card:hover .background .line.line-1:after {
+  transition-delay: 0s;
+}
+
+#platforms .card:hover .background .line.line-2:before,
+#platforms .card:hover .background .line.line-2:after {
+  transition-delay: 0.15s;
+}
+
+#platforms .card:hover .background .line.line-3:before,
+#platforms .card:hover .background .line.line-3:after {
+  transition-delay: 0.3s;
+}
+
+
+/* social */
+
+.fa {
+  font-size: 1.1em;
+}
