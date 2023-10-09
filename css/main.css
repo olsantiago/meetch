@@ -80,6 +80,15 @@ footer.section-angle {
   background-color: transparent;
 }
 
+@media only screen and (max-width: 768px) {
+  footer.section-angle {
+    background-image: url("../img/main-background-mobile.png");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
 .section-angle::before {
   background-color: transparent !important;
 }
@@ -125,17 +134,17 @@ footer.section-angle {
 
 
 /* CARDS ANIMATED */
-#music .card {
+#news .card {
   flex: 1;
 }
 
-#music .card.animated {
+#news .card.animated {
   position: relative;
   transition: all .2s ease-in-out;
   overflow: hidden;
 }
 
-#music .card-title {
+#news .card-title {
   height: 75px;
   overflow: hidden;
   display: -webkit-box;
@@ -143,7 +152,7 @@ footer.section-angle {
   -webkit-line-clamp: 2;
 }
 
-#music .card-text {
+#news .card-text {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -151,11 +160,11 @@ footer.section-angle {
   /* start showing ellipsis when 3rd line is reached */
 }
 
-#music .arrow {
+#news .arrow {
   margin-top: -15px;
 }
 
-#music .card.animated .card-body {
+#news .card.animated .card-body {
   background-color: #263238 !important;
   position: absolute;
   bottom: 0;
@@ -168,27 +177,23 @@ footer.section-angle {
   height: 300px;
 }
 
-#music .card.animated:hover .card-body {
+#news .card.animated .card-img {
+  min-height: 360px;
+  object-fit: cover;
+  object-position: center;
+}
+
+#news .card.animated:hover .card-body {
   transform: translateY(0);
   opacity: 1;
 }
 
-#music .card.animated:hover .arrow {
+#news .card.animated:hover .arrow {
   transform: rotate(180deg);
 }
 
 #platforms {
-  background: transparent;
-  border-color: #11171a;
-}
-
-@media only screen and (max-width: 768px) {
-  #platforms {
-    background-image: url("../img/main-background-mobile.png");
-    background-position: center top;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+  background: #11171a;
 }
 
 #platforms .card {
@@ -527,9 +532,16 @@ footer.section-angle {
   color: #FFF;
 }
 
+#tracks {
+  background: transparent;
+  border-color: #11171a;
+}
+
 @media only screen and (max-width: 768px) {
-  footer {
-    background-color: #11171a;
-    ;
+  #tracks {
+    background-image: url("../img/main-background-mobile.png");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
