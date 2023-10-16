@@ -132,6 +132,10 @@ footer.section-angle {
   transform: translateX(-50%) rotate(180deg);
 }
 
+#news {
+  background: transparent;
+  border-color: #11171a;
+}
 
 /* CARDS ANIMATED */
 #news .card {
