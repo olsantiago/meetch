@@ -107,6 +107,7 @@ footer.section-angle {
   height: 240px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: top;
 }
 
 .avatar::before,
