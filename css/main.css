@@ -180,6 +180,7 @@ footer.section-angle {
   transform: translateY(270px);
   opacity: 0.5;
   height: 300px;
+  width: 100%;
 }
 
 #news .card.animated .card-img {
